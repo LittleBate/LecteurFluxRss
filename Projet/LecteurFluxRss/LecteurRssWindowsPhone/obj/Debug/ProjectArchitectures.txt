@@ -1,0 +1,1 @@
+C:\Users\Bate\Work\C#\LecteurFluxRss\Projet\LecteurFluxRss\LecteurRssWindowsPhone\LecteurRssWindowsPhone.csproj;neutral
