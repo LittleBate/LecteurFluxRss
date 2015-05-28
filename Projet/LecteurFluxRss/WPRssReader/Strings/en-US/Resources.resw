@@ -117,34 +117,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddAppBarButton.Label" xml:space="preserve">
-    <value>add</value>
+  <data name="AjoutFlux.btn.Annuler" xml:space="preserve">
+    <value>Annuler</value>
   </data>
-  <data name="Header.Text" xml:space="preserve">
-    <value>MY APPLICATION</value>
+  <data name="AjoutFlux.btn.Valider" xml:space="preserve">
+    <value>Valider</value>
   </data>
-  <data name="NavigationFailedExceptionMessage" xml:space="preserve">
-    <value>Navigation failed.</value>
+  <data name="AjoutFlux.hp" xml:space="preserve">
+    <value>Ajouter un Flux</value>
   </data>
-  <data name="NewItemDescription" xml:space="preserve">
-    <value>Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.</value>
+  <data name="AjoutFlux.lbl.Liens" xml:space="preserve">
+    <value>Liens : </value>
   </data>
-  <data name="NewItemTitle" xml:space="preserve">
-    <value>Item Title: {0}</value>
+  <data name="AjoutFlux.lbl.Titre" xml:space="preserve">
+    <value>Titre : </value>
   </data>
-  <data name="Pivot.Title" xml:space="preserve">
-    <value>MY APPLICATION</value>
+  <data name="AjoutTag.hp" xml:space="preserve">
+    <value>Ajouter un Tag</value>
   </data>
-  <data name="PivotItem1.Header" xml:space="preserve">
-    <value>first</value>
+  <data name="AjoutTag.NewTag" xml:space="preserve">
+    <value>Nouveau Tag : </value>
   </data>
-  <data name="PivotItem2.Header" xml:space="preserve">
-    <value>second</value>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>RssReader</value>
   </data>
-  <data name="SecondaryButton1.Label" xml:space="preserve">
-    <value>secondary command 1</value>
+  <data name="Article.btn.AjoutFavoris" xml:space="preserve">
+    <value>Ajouter aux favoris</value>
   </data>
-  <data name="SecondaryButton2.Label" xml:space="preserve">
-    <value>secondary command 2</value>
+  <data name="Article.btn.AjoutTag" xml:space="preserve">
+    <value>Ajouter un Tag</value>
+  </data>
+  <data name="Article.btn.Partager" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="Article.lbl.Auteur" xml:space="preserve">
+    <value>Auteur : </value>
+  </data>
+  <data name="Article.lbl.Date" xml:space="preserve">
+    <value>Date : </value>
+  </data>
+  <data name="Favoris.hp" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="Favoris.lbl.Article" xml:space="preserve">
+    <value>Articles : </value>
+  </data>
+  <data name="Favoris.lbl.Flux" xml:space="preserve">
+    <value>Flux : </value>
+  </data>
+  <data name="Flux.btn.AjoutFavoris" xml:space="preserve">
+    <value>Ajouter aux favoris</value>
+  </data>
+  <data name="Flux.btn.AjoutTag" xml:space="preserve">
+    <value>Ajouter un Tag</value>
+  </data>
+  <data name="Flux.btn.Partager" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="Flux.lbl.Article" xml:space="preserve">
+    <value>Articles : </value>
+  </data>
+  <data name="Flux.lbl.Tags" xml:space="preserve">
+    <value>Tags : </value>
+  </data>
+  <data name="ListeFlux.btn.Editer" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="ListeFlux.hp" xml:space="preserve">
+    <value>Mes Flux</value>
+  </data>
+  <data name="Recherche.btn.Rechercher" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="Recherche.hp" xml:space="preserve">
+    <value>Recherche</value>
+  </data>
+  <data name="Recherche.lbl.ListeTags" xml:space="preserve">
+    <value>Tags : </value>
+  </data>
+  <data name="Recherche.lbl.TagsCherche" xml:space="preserve">
+    <value>Tags recherchés : </value>
+  </data>
+  <data name="Resultat.hp" xml:space="preserve">
+    <value>Resultat de recherche</value>
+  </data>
+  <data name="Resultat.lbl.Articles" xml:space="preserve">
+    <value>Articles : </value>
+  </data>
+  <data name="Resultat.lbl.Flux" xml:space="preserve">
+    <value>Flux : </value>
+  </data>
+  <data name="Article.btn.GoTo" xml:space="preserve">
+    <value>Voir l'article</value>
   </data>
 </root>
