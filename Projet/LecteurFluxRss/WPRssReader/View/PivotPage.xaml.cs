@@ -1,5 +1,4 @@
 ﻿using WPRssReader.Common;
-using WPRssReader.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

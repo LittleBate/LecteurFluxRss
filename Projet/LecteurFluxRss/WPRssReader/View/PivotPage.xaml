@@ -20,77 +20,111 @@
 
     <Grid>
         <Pivot x:Uid="Pivot" 
-               Title=""
+               Title="RssReaser"
                x:Name="pivot"
                CommonNavigationTransitionInfo.IsStaggerElement="True">
-            <!--Pivot item one-->
-            <PivotItem
-                x:Uid="PivotItem1"
-                Margin="19,14.5,0,0"
-                Header="first"
-                DataContext="{Binding FirstGroup}"
-                d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
-                CommonNavigationTransitionInfo.IsStaggerElement="True">
-                <!--Double line list with text wrapping-->
-                <ListView
-                    ItemsSource="{Binding Items}"
-                    IsItemClickEnabled="True"
-                    ItemClick="ItemView_ItemClick"
-                    ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-                    <ListView.ItemTemplate>
+            <!-- Pivot affichant les Flux rss de l'utilisateur -->
+            <PivotItem x:Uid="piListeFlux" 
+                       Margin="19,14.5,0,0" 
+                       Header="Mes Flux"
+                       CommonNavigationTransitionInfo.IsStaggerElement="True">
+                <ListBox ItemsSource="{Binding ListeFlux}">
+                    <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,9.5">
-                                <TextBlock
-                                    Text="{Binding Title}"
-                                    TextWrapping="Wrap"
-                                    Pivot.SlideInAnimationGroup="1"
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{ThemeResource ListViewItemTextBlockStyle}"
-                                    Margin="0,0,19,0"/>
-                                <TextBlock
-                                    Text="{Binding Description}"
-                                    TextWrapping="WrapWholeWords"
-                                    Pivot.SlideInAnimationGroup="2" 
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
-                                    Style="{ThemeResource ListViewItemContentTextBlockStyle}"
-                                    Margin="0,0,19,0"/>
-                            </StackPanel>
+                            
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </PivotItem>
 
-            <!--Pivot item two-->
-            <PivotItem
-                x:Uid="PivotItem2"
-                Margin="19,14.5,0,0"
-                Header="second"
-                DataContext="{Binding SecondGroup}"
-                d:DataContext="{Binding Groups[1], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}">
-                <!--Double line list no text wrapping-->
-                <ListView
-                    ItemsSource="{Binding Items}"
-                    IsItemClickEnabled="True"
-                    ItemClick="ItemView_ItemClick"
-                    Loaded="SecondPivot_Loaded"
-                    ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,0,0,9.5">
-                                <TextBlock
-                                    Text="{Binding Title}"
-                                    Pivot.SlideInAnimationGroup="1"
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemTextBlockStyle}"/>
-                                <TextBlock
-                                    Text="{Binding Description}"
-                                    Pivot.SlideInAnimationGroup="2"
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemContentTextBlockStyle}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <!-- Pivot gérant l'ajout d'un nouveau flux rss -->
+            <PivotItem x:Uid="piAjoutFlux"
+                       Margin="19,14.5,0,0"
+                       Header="Ajout Flux">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="Liens : "/>
+                    <TextBox Grid.Row="1"
+                             Text="{Binding Liens}"/>
+                    <TextBlock Grid.Row="2"
+                               Text="Titre : "/>
+                    <TextBox Grid.Row="3"
+                             Text="{Binding Titre}"/>
+                </Grid>
+            </PivotItem>
+
+            <!-- Pivot de recherche par tag -->
+            <PivotItem x:Uid="piRecherche"
+                       Margin="19,14.5,0,0"
+                       Header="Recherche">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="Tags : "/>
+                    <ListBox Grid.Row="1"
+                             ItemsSource="{Binding TagsExistat}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapGrid/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                    <TextBlock Grid.Row="2"
+                               Text="Tags cherchés : "/>
+                    <ListBox Grid.Row="3"
+                             ItemsSource="{Binding TagsCherches}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapGrid/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                    <Button Grid.Row="5"
+                            Content="Rechercher"
+                            Command="{Binding CmdRechercher}"
+                            HorizontalAlignment="Stretch"/>
+                </Grid>
+            </PivotItem>
+
+            <!-- Pivot affichant les Flux rss et les articles favoris de l'utilisateur -->
+            <PivotItem x:Uid="piFavoris"
+                       Margin="19,14.5,0,0"
+                       Header="Favoris">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="Flux : "/>
+                    <ListBox Grid.Row="1"
+                             ItemsSource="{Binding ListeFluxFavoris}">
+                        
+                    </ListBox>
+                    <TextBlock Grid.Row="2"
+                               Text="Articles : "/>
+                    <ListBox Grid.Row="3"
+                             ItemsSource="{Binding ListeArticlesFavoris}">
+                        
+                    </ListBox>
+                </Grid>
             </PivotItem>
         </Pivot>
     </Grid>

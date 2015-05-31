@@ -23,13 +23,37 @@
 
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="page title" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+            <TextBlock Text="RssReader"
+                       Style="{ThemeResource TitleTextBlockStyle}"
+                       Margin="0,12,0,0"/>
+            <TextBlock Text="Resultats recherche"
+                       Margin="0,-6.5,0,26.5"
+                       Style="{ThemeResource HeaderTextBlockStyle}" 
+                       CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
         </StackPanel>
 
-        <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-
+        <Grid Grid.Row="1"
+              x:Name="ContentRoot" 
+              Margin="19,9.5,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Text="Flux : "/>
+            <ListBox Grid.Row="1"
+                     ItemsSource="{Binding FluxTrouves}">
+                
+            </ListBox>
+            <TextBlock Grid.Row="2"
+                       Text="Articles : "/>
+            <ListBox Grid.Row="3"
+                     ItemsSource="{Binding AriclesTrouves}">
+                
+            </ListBox>
         </Grid>
     </Grid>
 </Page>
