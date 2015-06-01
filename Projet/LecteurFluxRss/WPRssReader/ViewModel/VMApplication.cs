@@ -6,7 +6,32 @@ using System.Threading.Tasks;
 
 namespace WPRssReader.ViewModel
 {
-    class VMApplication
+    public class VMApplication
     {
+        /// <summary>
+        /// Instance unique du ViewModel de l'application
+        /// </summary>
+        private static VMApplication instance;
+
+        /// <summary>
+        /// Obtient l'instance unique du ViewModel de l'application
+        /// </summary>
+        public static VMApplication Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new VMApplication();
+                }
+                return instance;
+            }
+        }
+        
+        private VMApplication()
+        {
+
+        }
+
     }
 }
