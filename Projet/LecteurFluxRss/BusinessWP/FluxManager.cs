@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace Buisness
 
         private FluxManager()
         {
-            ListeFlux = new List<Flux>();
+            ListeFlux = new ObservableCollection<Flux>();
             ListFluxLink = new List<string>();
             loader = LoaderFluxRSS.GetInstance();
         }
@@ -45,15 +46,15 @@ namespace Buisness
 
         #region Flux
 
-        private List<Flux> listeFlux;
+        private ObservableCollection<Flux> listeFlux;
         /// <summary>
         /// liste des flux 
         /// </summary>
-        public List<Flux> ListeFlux
+        public ObservableCollection<Flux> ListeFlux
         {
             get
             {
-                return new List<Flux>(listeFlux);
+                return listeFlux;
             }
             private set
             {
@@ -125,12 +126,16 @@ namespace Buisness
         /// </summary>
         public void Load()
         {
-
             var lfl = ListFluxLink
                 .Where(l => !l.Trim().Equals(FAVORIS))
                 .ToList();
+            loader.FluxLoaded += loader_FluxLoaded;
+            loader.LoadFlux(lfl);
+        }
 
-            AddAllFlux(loader.LoadFlux(lfl));
+        void loader_FluxLoaded(object sender, FluxLoadedEventArgs e)
+        {
+            AddFlux(e.fluxLoaded);
         }
         
         /// <summary>

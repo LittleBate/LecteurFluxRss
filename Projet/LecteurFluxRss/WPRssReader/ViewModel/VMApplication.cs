@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Buisness;
+using System.Collections.ObjectModel;
 
 namespace WPRssReader.ViewModel
 {
@@ -35,10 +36,18 @@ namespace WPRssReader.ViewModel
             //manager.SauvegardeManager = new SauvegardeManagerBdd();
 
             manager.AddFluxLink(@"http://www.developpez.com/index/rss");
-            //manager.AddFluxTitle(@"http://radiofrance-podcast.net/podcast09/rss_13100.xml");
-            //manager.AddFluxTitle(@"http://lesjoiesducode.fr/rss");
-            manager.ChargerDonnées();
+            manager.AddFluxLink(@"http://radiofrance-podcast.net/podcast09/rss_13100.xml");
+            manager.AddFluxLink(@"http://lesjoiesducode.fr/rss");
+            //manager.ChargerDonnées();
             manager.Load();
+        }
+
+        public ObservableCollection<Flux> ListeFlux
+        {
+            get
+            {
+                return manager.ListeFlux;
+            }
         }
 
         private FluxManager manager;

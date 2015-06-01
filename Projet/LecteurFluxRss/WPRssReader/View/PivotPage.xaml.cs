@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WPRssReader.ViewModel;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -25,7 +26,7 @@ namespace WPRssReader
     public sealed partial class PivotPage : Page
     {
         private readonly NavigationHelper navigationHelper;
-        private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
+        //private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
 
         public PivotPage()
         {
@@ -36,6 +37,8 @@ namespace WPRssReader
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            DataContext = VMApplication.Instance;
         }
 
         /// <summary>

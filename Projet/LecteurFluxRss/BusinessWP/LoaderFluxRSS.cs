@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -92,12 +93,20 @@ namespace Buisness
         /// </summary>
         /// <param name="FluxRssLink">lien du flux rss à charger</param>
         /// <returns>Le flux rss chargé</returns>
-        public async void Load(string FluxRssLink, List<Flux> listeFlux)
+        public async void Load(string FluxRssLink)
         {
             var response = await hc.GetStringAsync(new Uri(FluxRssLink, UriKind.Absolute));
-            listeFlux.Add(LoadFluxByText(response));
-//            wc.DownloadFile(new Uri(FluxRssLink, UriKind.Absolute), STOCKFILEPATH);
-//            return loadByFile(STOCKFILEPATH);
+            var flux = LoadFluxByText(response);
+            OnFluxLoaded(new FluxLoadedEventArgs(flux));
+        }
+
+        public event EventHandler<FluxLoadedEventArgs> FluxLoaded;
+        public void OnFluxLoaded(FluxLoadedEventArgs args)
+        {
+            if(FluxLoaded != null)
+            {
+                FluxLoaded(this, args);
+            }
         }
 
         private Flux LoadFluxByText(string text)
@@ -164,14 +173,12 @@ namespace Buisness
         /// </summary>
         /// <param name="links">liste des liens de flux rss à charger</param>
         /// <returns>la liste des flux rss chargé</returns>
-        public List<Flux> LoadFlux(List<String> links)
+        public void LoadFlux(List<String> links)
         {
-            List<Flux> myList = new List<Flux>();
             foreach (var link in links)
             {
-                Load(link, myList);
+                Load(link);
             }
-            return myList;
         }
 
         #endregion
@@ -200,5 +207,15 @@ namespace Buisness
         #endregion
 
 
+    }
+
+    public class FluxLoadedEventArgs
+    {
+        public FluxLoadedEventArgs(Flux flux)
+        {
+            fluxLoaded = flux;
+        }
+
+        public Flux fluxLoaded { get; private set; }
     }
 }

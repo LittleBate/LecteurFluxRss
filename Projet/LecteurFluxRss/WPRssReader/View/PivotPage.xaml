@@ -31,7 +31,9 @@
                 <ListBox ItemsSource="{Binding ListeFlux}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}"/>
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -77,21 +79,11 @@
                                Text="Tags : "/>
                     <ListBox Grid.Row="1"
                              ItemsSource="{Binding TagsExistat}">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapGrid/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
                     </ListBox>
                     <TextBlock Grid.Row="2"
                                Text="Tags cherchés : "/>
                     <ListBox Grid.Row="3"
                              ItemsSource="{Binding TagsCherches}">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapGrid/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
                     </ListBox>
                     <Button Grid.Row="5"
                             Content="Rechercher"
