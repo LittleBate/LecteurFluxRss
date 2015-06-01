@@ -28,10 +28,16 @@
                        Margin="19,14.5,0,0" 
                        Header="Mes Flux"
                        CommonNavigationTransitionInfo.IsStaggerElement="True">
-                <ListBox ItemsSource="{Binding ListeFlux}">
+                <ListBox ItemsSource="{Binding ListeFlux}"
+                         SelectionChanged="FluxSelectionneChanged"
+                         SelectedItem ="{Binding VMFlux.CurrentFlux, Mode=TwoWay}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock"
+                                           BasedOn="{StaticResource DefaultTextBlockStyle}"/>
+                                </StackPanel.Resources>
                                 <TextBlock Text="{Binding Title}"/>
                             </StackPanel>
                         </DataTemplate>
@@ -41,6 +47,7 @@
 
             <!-- Pivot gérant l'ajout d'un nouveau flux rss -->
             <PivotItem x:Uid="piAjoutFlux"
+                       DataContext="{Binding VMAjoutFlux}"
                        Margin="19,14.5,0,0"
                        Header="Ajout Flux">
                 <Grid>
@@ -50,20 +57,25 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0"
                                Text="Liens : "/>
                     <TextBox Grid.Row="1"
                              Text="{Binding Liens}"/>
-                    <TextBlock Grid.Row="2"
+                    <!--<TextBlock Grid.Row="2"
                                Text="Titre : "/>
                     <TextBox Grid.Row="3"
-                             Text="{Binding Titre}"/>
+                             Text="{Binding Titre}"/>-->
+                    <Button Grid.Row="5"
+                            Content="Valider"
+                            HorizontalAlignment="Stretch"/>
                 </Grid>
             </PivotItem>
 
             <!-- Pivot de recherche par tag -->
             <PivotItem x:Uid="piRecherche"
+                       DataContext="{Binding VMRecherche}"
                        Margin="19,14.5,0,0"
                        Header="Recherche">
                 <Grid>
@@ -94,6 +106,7 @@
 
             <!-- Pivot affichant les Flux rss et les articles favoris de l'utilisateur -->
             <PivotItem x:Uid="piFavoris"
+                       DataContext="{Binding VMFavoris}"
                        Margin="19,14.5,0,0"
                        Header="Favoris">
                 <Grid>
@@ -123,11 +136,11 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Icon="Add" Click="AddAppBarButton_Click" />
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="SecondaryButton1" x:Name="SecondaryButton1" Label="secondary command 1" />
-                <AppBarButton x:Uid="SecondaryButton2" x:Name="SecondaryButton2" Label="secondary command 2" />
-            </CommandBar.SecondaryCommands>
+            <AppBarButton x:Uid="AddAppBarButton" 
+                          x:Name="AddAppBarButton" 
+                          Label="add" 
+                          Icon="Add" 
+                          Click="AddAppBarButton_Click" />
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

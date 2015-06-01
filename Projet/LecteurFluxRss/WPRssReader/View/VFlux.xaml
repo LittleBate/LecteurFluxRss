@@ -26,7 +26,7 @@
             <TextBlock Text="RssReader" 
                        Style="{ThemeResource TitleTextBlockStyle}" 
                        Margin="0,12,0,0"/>
-            <TextBlock Text="{Binding FluxCourant.Titre}" 
+            <TextBlock Text="{Binding CurrentFlux.Title}" 
                        Margin="0,-6.5,0,26.5" 
                        Style="{ThemeResource HeaderTextBlockStyle}" 
                        CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
@@ -43,13 +43,41 @@
             <TextBlock Grid.Row="0"
                        Text="Articles : "/>
             <ListBox Grid.Row="1"
-                     ItemsSource="{Binding FluxCourant.ListeArticle}">
+                     ItemsSource="{Binding CurrentFlux.ListArticle}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="50">
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock" 
+                                       BasedOn="{StaticResource DefaultTextBlockStyle}"/>
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="{Binding Title}"/>
+                            <TextBlock Grid.Column="1"
+                                       Grid.Row="0"
+                                       Text="{Binding DatePublication}"/>
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"
+                                       Text="{Binding Mode^scription}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
                 
             </ListBox>
             <TextBlock Grid.Row="2"
                        Text="Tags : "/>
             <ListBox Grid.Row="3"
-                     ItemsSource="{Binding FluxCourant.ListeTags}">
+                     ItemsSource="{Binding CurrentFlux.ListTags}">
                 
             </ListBox>
         </Grid>

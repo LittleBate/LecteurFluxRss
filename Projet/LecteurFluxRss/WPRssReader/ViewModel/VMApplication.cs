@@ -33,13 +33,14 @@ namespace WPRssReader.ViewModel
         private VMApplication()
         {
             manager = FluxManager.getInstance();
-            //manager.SauvegardeManager = new SauvegardeManagerBdd();
 
             manager.AddFluxLink(@"http://www.developpez.com/index/rss");
             manager.AddFluxLink(@"http://radiofrance-podcast.net/podcast09/rss_13100.xml");
             manager.AddFluxLink(@"http://lesjoiesducode.fr/rss");
-            //manager.ChargerDonnées();
+
             manager.Load();
+
+            VMFlux = new VMFlux();
         }
 
         public ObservableCollection<Flux> ListeFlux
@@ -51,7 +52,8 @@ namespace WPRssReader.ViewModel
         }
 
         private FluxManager manager;
-        
+
+        public VMFlux VMFlux { get; private set; }        
 
     }
 }

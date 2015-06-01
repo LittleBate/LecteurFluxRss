@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WPRssReader.ViewModel;
+using Buisness;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -85,20 +86,6 @@ namespace WPRssReader
         {
         }
 
-        /// <summary>
-        /// Invoked when an item within a section is clicked.
-        /// </summary>
-        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Loads the content for the second pivot item when it is scrolled into view.
-        /// </summary>
-        private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
-        {
-        }
-
         #region NavigationHelper registration
 
         /// <summary>
@@ -125,5 +112,11 @@ namespace WPRssReader
         }
 
         #endregion
+
+        private void FluxSelectionneChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(VFlux));
+        }
+
     }
 }
