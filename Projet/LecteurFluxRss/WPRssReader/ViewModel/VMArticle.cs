@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace WPRssReader.ViewModel
 {
@@ -23,6 +24,18 @@ namespace WPRssReader.ViewModel
             {
                 currentArticle = value;
                 OnPropertyChanged(CURRENT_ARTICLE);
+                OnPropertyChanged(ARTICLE_IMAGE);
+            }
+        }
+
+        private const string ARTICLE_IMAGE = "ArticleImage";
+        public BitmapImage ArticleImage
+        {
+            get
+            {
+                if (CurrentArticle == null || CurrentArticle.MediaUrl == null)
+                    return null;
+                return new BitmapImage(new Uri(CurrentArticle.MediaUrl, UriKind.Absolute));
             }
         }
 

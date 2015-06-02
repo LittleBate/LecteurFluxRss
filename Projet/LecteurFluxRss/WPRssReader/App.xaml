@@ -44,6 +44,7 @@
                                Text="{Binding DatePublication}"
                                Style="{StaticResource TextBlockNormalFontStyle}"/>
                     <TextBlock Grid.Row="1"
+                               TextWrapping="WrapWholeWords"
                                Text="{Binding Description}"
                                Style="{StaticResource TextBlockNormalFontStyle}"/>
                 </Grid>

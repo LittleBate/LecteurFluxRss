@@ -8,60 +8,57 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="LayoutRoot">
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
 
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <!-- Title Panel -->
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-           <TextBlock Text="RssReader"
-                      Style="{ThemeResource TitleTextBlockStyle}" 
-                      Margin="0,12,0,0"/>
-            <TextBlock Text="{Binding CurrentArticle.Title}" 
-                       TextWrapping="WrapWholeWords"
-                       FontSize="40"
-                       Margin="0,-6.5,0,26.5" 
-                       Style="{ThemeResource HeaderTextBlockStyle}" 
-                       CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
-        </StackPanel>
-
-        <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" 
-              x:Name="ContentRoot"
-              Margin="19,9.5,19,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition />
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0"
-                       Grid.Row="0"
-                       Text="{Binding CurrentArticle.Author}"/>
-            
-            <TextBlock Grid.Row="0"
-                       Grid.Column="1"
-                       Text="{Binding CurrentArticle.DatePublication}"/>
 
-            <TextBlock Grid.Row="1"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="2"
-                       TextWrapping="WrapWholeWords"
-                       Text="{Binding CurrentArticle.Description}"/>
-            
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+               <TextBlock Text="RssReader"
+                          Style="{ThemeResource TitleTextBlockStyle}" 
+                          Margin="0,12,0,0"/>
+                <TextBlock Text="{Binding CurrentArticle.Title}" 
+                           TextWrapping="WrapWholeWords"
+                           FontSize="40"
+                           Margin="0,-6.5,0,26.5" 
+                           Style="{ThemeResource HeaderTextBlockStyle}" 
+                           CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+            </StackPanel>
+
+            <!--TODO: Content should be placed within the following grid-->
+            <Grid Grid.Row="1" 
+                  x:Name="ContentRoot"
+                  Margin="19,9.5,19,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Row="0"
+                           Text="{Binding CurrentArticle.Author}"/>
+                
+                <TextBlock Grid.Row="0"
+                           Text="{Binding CurrentArticle.DatePublication}"/>
+
+                <TextBlock Grid.Row="1"
+                           Style="{StaticResource TextBlockNormalFontStyle}"
+                           TextWrapping="WrapWholeWords"
+                           Text="{Binding CurrentArticle.Description}"/>
+                
+                <Image Source="{Binding ArticleImage}"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Page>

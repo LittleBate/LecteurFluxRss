@@ -113,6 +113,8 @@ namespace WPRssReader
 
         private void ArticleSelecedChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (this.Frame == null)
+                return;
             this.Frame.Navigate(typeof(VArticle));
         }
     }
