@@ -173,7 +173,11 @@ namespace Buisness
                 {
                     Title = xItem.Element(TITLE).Value,
                     Link = xItem.Element(LINK).Value,
-                    Description = xItem.Element(DESCRIPTION).Value.Replace("<b>", "").Replace("</b>", ""),
+                    Description = xItem.Element(DESCRIPTION).Value
+                    .Replace("<b>", "")
+                    .Replace("</b>", "")
+                    .Replace("<br/>", "")
+                    .Replace("<br />", "")
                 };
                 if (xItem.Element(MEDIA) != null)
                 {

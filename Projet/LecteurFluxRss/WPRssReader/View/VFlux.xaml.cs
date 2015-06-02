@@ -110,5 +110,10 @@ namespace WPRssReader
         }
 
         #endregion
+
+        private void ArticleSelecedChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(VArticle));
+        }
     }
 }

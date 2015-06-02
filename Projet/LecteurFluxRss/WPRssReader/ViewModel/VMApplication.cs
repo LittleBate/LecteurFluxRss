@@ -41,6 +41,7 @@ namespace WPRssReader.ViewModel
             manager.Load();
 
             VMFlux = new VMFlux();
+            VMArticle = new VMArticle();
         }
 
         public ObservableCollection<Flux> ListeFlux
@@ -53,7 +54,8 @@ namespace WPRssReader.ViewModel
 
         private FluxManager manager;
 
-        public VMFlux VMFlux { get; private set; }        
+        public VMFlux VMFlux { get; private set; }
 
+        public VMArticle VMArticle { get; private set; }
     }
 }

@@ -24,9 +24,11 @@
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
            <TextBlock Text="RssReader"
-                       Style="{ThemeResource TitleTextBlockStyle}" 
+                      Style="{ThemeResource TitleTextBlockStyle}" 
                       Margin="0,12,0,0"/>
-            <TextBlock Text="{Binding ArticleCourant.Title}" 
+            <TextBlock Text="{Binding CurrentArticle.Title}" 
+                       TextWrapping="WrapWholeWords"
+                       FontSize="40"
                        Margin="0,-6.5,0,26.5" 
                        Style="{ThemeResource HeaderTextBlockStyle}" 
                        CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
@@ -48,16 +50,17 @@
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0"
                        Grid.Row="0"
-                       Text="{Binding Author}"/>
+                       Text="{Binding CurrentArticle.Author}"/>
             
             <TextBlock Grid.Row="0"
                        Grid.Column="1"
-                       Text="{Binding DatePublication}"/>
+                       Text="{Binding CurrentArticle.DatePublication}"/>
 
             <TextBlock Grid.Row="1"
                        Grid.Column="0"
                        Grid.ColumnSpan="2"
-                       Text="{Binding Description}"/>
+                       TextWrapping="WrapWholeWords"
+                       Text="{Binding CurrentArticle.Description}"/>
             
         </Grid>
     </Grid>

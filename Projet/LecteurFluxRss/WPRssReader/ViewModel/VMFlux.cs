@@ -33,6 +33,14 @@ namespace WPRssReader.ViewModel
             }
         }
 
+        public VMApplication VMApplication
+        {
+            get
+            {
+                return VMApplication.Instance;
+            }
+        }
+
         
         public event PropertyChangedEventHandler PropertyChanged;
 
