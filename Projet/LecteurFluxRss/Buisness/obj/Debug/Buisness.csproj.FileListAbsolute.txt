@@ -3,3 +3,8 @@ C:\Users\Bate\Work\C#\LecteurFluxRss\Projet\LecteurFluxRss\bin\Buisness.pdb
 C:\Users\Bate\Work\C#\LecteurFluxRss\Projet\LecteurFluxRss\Buisness\obj\Debug\Buisness.csprojResolveAssemblyReference.cache
 C:\Users\Bate\Work\C#\LecteurFluxRss\Projet\LecteurFluxRss\Buisness\obj\Debug\Buisness.dll
 C:\Users\Bate\Work\C#\LecteurFluxRss\Projet\LecteurFluxRss\Buisness\obj\Debug\Buisness.pdb
+C:\Users\Bate\Documents\GitHub\LecteurFluxRss\Projet\LecteurFluxRss\bin\Buisness.dll
+C:\Users\Bate\Documents\GitHub\LecteurFluxRss\Projet\LecteurFluxRss\bin\Buisness.pdb
+C:\Users\Bate\Documents\GitHub\LecteurFluxRss\Projet\LecteurFluxRss\Buisness\obj\Debug\Buisness.csprojResolveAssemblyReference.cache
+C:\Users\Bate\Documents\GitHub\LecteurFluxRss\Projet\LecteurFluxRss\Buisness\obj\Debug\Buisness.dll
+C:\Users\Bate\Documents\GitHub\LecteurFluxRss\Projet\LecteurFluxRss\Buisness\obj\Debug\Buisness.pdb

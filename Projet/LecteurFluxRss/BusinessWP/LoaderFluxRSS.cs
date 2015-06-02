@@ -48,6 +48,18 @@ namespace Buisness
         /// Fichier d'erreur
         /// </summary>
         private const string LOGERRORFILE = "LogError.txt";
+        /// <summary>
+        /// Auteur
+        /// </summary>
+        private const string AUTHOR = "author";
+        /// <summary>
+        /// Media
+        /// </summary>
+        private const string MEDIA = "enclosure";
+        /// <summary>
+        /// URL
+        /// </summary>
+        private const string URL = "url";
 
         #endregion
 
@@ -157,13 +169,21 @@ namespace Buisness
             };
             foreach (var xItem in xFlux.Elements(ITEM).ToList())
             {
-                flux.AddArticle(new Article()
+                var article = new Article()
                 {
                     Title = xItem.Element(TITLE).Value,
                     Link = xItem.Element(LINK).Value,
-                    Description = xItem.Element(DESCRIPTION).Value,
-                    //DatePublication = XmlConvert.ToDateTime(xItem.Element(DATE).Value, "ddd, dd MMM yyyy H:mm:ss zzz")
-                });
+                    Description = xItem.Element(DESCRIPTION).Value.Replace("<b>", "").Replace("</b>", ""),
+                };
+                if (xItem.Element(MEDIA) != null)
+                {
+                    article.MediaUrl = xItem.Element(MEDIA).Attribute(URL).Value;
+                }
+                if (xItem.Element(DATE) != null)
+                {
+                    article.DatePublication = DateTime.Parse(xItem.Element(DATE).Value);
+                }
+                flux.AddArticle(article);
             }
             return flux;
         }
