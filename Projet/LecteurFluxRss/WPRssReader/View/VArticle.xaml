@@ -57,7 +57,7 @@
                            TextWrapping="WrapWholeWords"
                            Text="{Binding CurrentArticle.Description}"/>
                 
-                <Image Source="{Binding ArticleImage}"/>
+                <Image Grid.Row="2" Source="{Binding CurrentArticle.ImageUrl}"/>
             </Grid>
         </Grid>
     </ScrollViewer>

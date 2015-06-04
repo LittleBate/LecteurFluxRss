@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Buisness
@@ -60,7 +61,8 @@ namespace Buisness
             }
             set
             {
-                description = value;
+                ImageUrl = Regex.Match(value, "<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase).Groups[1].Value;
+                description = Regex.Replace(value, "<.*?>", string.Empty);
             }
         }
 
@@ -109,6 +111,22 @@ namespace Buisness
             set
             {
                 iconUrl = value;
+            }
+        }
+
+        private string imageUrl;
+        /// <summary>
+        /// Definit ou obtient l'url de l'image associé à l'article
+        /// </summary>
+        public string ImageUrl
+        {
+            get
+            {
+                return imageUrl;
+            }
+            set
+            {
+                imageUrl = value;
             }
         }
 

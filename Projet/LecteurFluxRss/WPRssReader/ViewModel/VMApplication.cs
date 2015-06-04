@@ -37,6 +37,8 @@ namespace WPRssReader.ViewModel
             manager.AddFluxLink(@"http://www.developpez.com/index/rss");
             manager.AddFluxLink(@"http://radiofrance-podcast.net/podcast09/rss_13100.xml");
             manager.AddFluxLink(@"http://lesjoiesducode.fr/rss");
+            manager.AddFluxLink(@"http://www.bonjourmadame.fr/rss");
+            manager.AddFluxLink(@"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/");
 
             manager.Load();
 
