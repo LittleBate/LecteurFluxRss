@@ -33,9 +33,9 @@ namespace WPRssReader.ViewModel
         {
             get
             {
-                if (CurrentArticle == null || CurrentArticle.MediaUrl == null)
+                if (CurrentArticle == null || CurrentArticle.IconUrl == null)
                     return null;
-                return new BitmapImage(new Uri(CurrentArticle.MediaUrl, UriKind.Absolute));
+                return new BitmapImage(new Uri(CurrentArticle.IconUrl, UriKind.Absolute));
             }
         }
 

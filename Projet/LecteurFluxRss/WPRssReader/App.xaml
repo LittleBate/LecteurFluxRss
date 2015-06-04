@@ -37,13 +37,26 @@
                         <RowDefinition/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding IconUrl}"
+                           Width="30"
+                           Height="30"
+                           Margin="0, 0, 4, 0"/>
                     <TextBlock Grid.Row="0"
+                               Grid.Column="1"
                                Text="{Binding Title}"/>
                     <TextBlock Grid.Row="2"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
                                Margin="0, 3"
                                Text="{Binding DatePublication}"
                                Style="{StaticResource TextBlockNormalFontStyle}"/>
                     <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
                                TextWrapping="WrapWholeWords"
                                Text="{Binding Description}"
                                Style="{StaticResource TextBlockNormalFontStyle}"/>

@@ -96,19 +96,19 @@ namespace Buisness
             }
         }
 
-        private string mediaUrl;
+        private string iconUrl;
         /// <summary>
         /// Definit ou obtient l'url du media associé à l'article
         /// </summary>
-        public string MediaUrl
+        public string IconUrl
         {
             get
             {
-                return mediaUrl;
+                return iconUrl;
             }
             set
             {
-                mediaUrl = value;
+                iconUrl = value;
             }
         }
 

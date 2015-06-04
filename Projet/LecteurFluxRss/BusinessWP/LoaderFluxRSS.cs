@@ -181,7 +181,7 @@ namespace Buisness
                 };
                 if (xItem.Element(MEDIA) != null)
                 {
-                    article.MediaUrl = xItem.Element(MEDIA).Attribute(URL).Value;
+                    article.IconUrl = xItem.Element(MEDIA).Attribute(URL).Value;
                 }
                 if (xItem.Element(DATE) != null)
                 {
