@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:WPRssReader.Data"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Transitions>
@@ -62,14 +63,15 @@
                     <TextBlock Grid.Row="0"
                                Text="Liens : "/>
                     <TextBox Grid.Row="1"
-                             Text="{Binding Liens}"/>
+                             Text="{Binding Liens, Mode=TwoWay}"/>
                     <!--<TextBlock Grid.Row="2"
                                Text="Titre : "/>
                     <TextBox Grid.Row="3"
                              Text="{Binding Titre}"/>-->
                     <Button Grid.Row="5"
                             Content="Valider"
-                            HorizontalAlignment="Stretch"/>
+                            HorizontalAlignment="Stretch"
+                            Command="{Binding CmdAjoutFlux}"/>
                 </Grid>
             </PivotItem>
 
@@ -134,13 +136,4 @@
         </Pivot>
     </Grid>
 
-    <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton x:Uid="AddAppBarButton" 
-                          x:Name="AddAppBarButton" 
-                          Label="add" 
-                          Icon="Add" 
-                          Click="AddAppBarButton_Click" />
-        </CommandBar>
-    </Page.BottomAppBar>
 </Page>

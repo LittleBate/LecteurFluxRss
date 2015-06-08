@@ -114,6 +114,17 @@ namespace Buisness
             }
         }
 
+        private const string HADICON = "HadIcon";
+        public bool HadIcon
+        {
+            get
+            {
+                if (IconUrl == null || IconUrl.Trim() == String.Empty)
+                    return false;
+                return true;
+            }
+        }
+
         private string imageUrl;
         /// <summary>
         /// Definit ou obtient l'url de l'image associé à l'article

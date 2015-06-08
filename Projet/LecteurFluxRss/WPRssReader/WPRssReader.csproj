@@ -109,6 +109,7 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModel\VMAjoutFlux.cs" />
     <Compile Include="ViewModel\VMAjoutTags.cs" />
     <Compile Include="ViewModel\VMApplication.cs" />

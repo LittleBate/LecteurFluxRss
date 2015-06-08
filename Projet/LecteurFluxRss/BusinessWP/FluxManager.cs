@@ -38,8 +38,8 @@ namespace Buisness
         private FluxManager()
         {
             ListeFlux = new ObservableCollection<Flux>();
-            ListFluxLink = new List<string>();
             loader = LoaderFluxRSS.GetInstance();
+            loader.FluxLoaded += loader_FluxLoaded;
         }
 
         #endregion
@@ -60,20 +60,6 @@ namespace Buisness
             {
                 this.listeFlux = value;
             }
-        }
-
-        /// <summary>
-        /// Liste des titre des flux rss à charger
-        /// </summary>
-        private List<String> ListFluxLink;
-
-        /// <summary>
-        /// Ajoute un nouveau lien de flux rss à charger
-        /// </summary>
-        /// <param name="link">lien à ajouter</param>
-        public void AddFluxLink(string link)
-        {
-            ListFluxLink.Add(link);
         }
 
         /// <summary>
@@ -121,16 +107,9 @@ namespace Buisness
 
         #region Loader
 
-        /// <summary>
-        /// Charge les flux Rss à partir d'internet
-        /// </summary>
-        public void Load()
+        public void LoadALink(string link)
         {
-            var lfl = ListFluxLink
-                .Where(l => !l.Trim().Equals(FAVORIS))
-                .ToList();
-            loader.FluxLoaded += loader_FluxLoaded;
-            loader.LoadFlux(lfl);
+            loader.Load(link);
         }
 
         void loader_FluxLoaded(object sender, FluxLoadedEventArgs e)
@@ -167,7 +146,7 @@ namespace Buisness
             AddAllFlux(sauvegardeManager.Load());
             foreach (var f in listeFlux.Where(f => String.IsNullOrEmpty(f.Title)).ToList())
             {
-                AddFluxLink(f.Link);   
+                LoadALink(f.Link);   
             }
         }
         
