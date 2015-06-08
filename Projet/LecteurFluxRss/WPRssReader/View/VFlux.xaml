@@ -35,10 +35,9 @@
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition />
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
                        Text="Articles : "/>
