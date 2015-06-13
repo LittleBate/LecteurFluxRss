@@ -109,6 +109,7 @@ namespace Buisness
 
         public void LoadALink(string link)
         {
+            sauvegardeManager.SaveRssLink(link);
             loader.Load(link);
         }
 
@@ -131,7 +132,21 @@ namespace Buisness
             set
             {
                 sauvegardeManager = value;
+                sauvegardeManager.ListLinksLoaded += ListLinksLoaded;
             }
+        }
+
+        public void ListLinksLoaded(object sender, EventArgs e)
+        {
+            foreach (var link in sauvegardeManager.GetLinks())
+            {
+                loader.Load(link);
+            }
+        }
+
+        public void loadLinks()
+        {
+            sauvegardeManager.LoadListLinks();
         }
 
         /// <summary>
@@ -143,7 +158,7 @@ namespace Buisness
             {
                 return;
             }
-            foreach (var link in sauvegardeManager.LoadLinks())
+            foreach (var link in sauvegardeManager.GetLinks())
 	        {
                 LoadALink(link);
 	        }

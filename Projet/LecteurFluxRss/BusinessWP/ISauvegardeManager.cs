@@ -45,6 +45,10 @@ namespace Buisness
         /// Charge les liens rss de l'utilisateur
         /// </summary>
         /// <returns></returns>
-        IEnumerable<string> LoadLinks();
+        IEnumerable<string> GetLinks();
+
+        void LoadListLinks();
+
+        event EventHandler<EventArgs> ListLinksLoaded;
     }
 }

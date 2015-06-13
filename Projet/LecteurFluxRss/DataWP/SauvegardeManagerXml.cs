@@ -6,36 +6,20 @@ using System.Threading.Tasks;
 using Buisness;
 using System.Xml.Linq;
 using System.Xml;
-//using System.IO.
+using Windows.Storage;
 using System.IO;
 
 namespace DataWP
 {
     public class SauvegardeManagerXml : ISauvegardeManager
     {
+        private XDocument xDoc;
 
         public SauvegardeManagerXml()
         {
-            
-
-            XDocument xDoc = new XDocument();
-
-            var xLinkList = new XElement(LINKS_LIST,
-                                new XElement(LINK, @"http://www.developpez.com/index/rss"),
-                                new XElement(LINK, @"http://radiofrance-podcast.net/podcast09/rss_13100.xml"),
-                                new XElement(LINK, @"http://lesjoiesducode.fr/rss"),
-                                new XElement(LINK, @"http://www.lequipe.fr/rss/actu_rss.xml"),
-                                new XElement(LINK, @"http://www.lequipe.fr/rss/videos_rss.xml"),
-                                new XElement(LINK, @"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/"),
-                                new XElement(LINK, @"http://www.bonjourmadame.com/rss"));
-
-            xDoc.Add(xLinkList);
-
-
-            
+            xDoc = new XDocument();
+            //SaveRssLink("");
         }
-
-        private XDocument xDoc;
 
         #region CONST
 
@@ -67,27 +51,61 @@ namespace DataWP
             throw new NotImplementedException();
         }
 
-        public void SaveRssLink(string link)
+        public async void SaveRssLink(string link)
         {
+            xDoc.Element(LINKS_LIST).Add(new XElement(LINK, link));
 
+//            XElement xe = new XElement(LINKS_LIST, 
+//                new XElement(LINK, @"http://www.developpez.com/index/rss"),
+//                new XElement(LINK, @"http://radiofrance-podcast.net/podcast09/rss_13100.xml"),
+//                new XElement(LINK, @"http://lesjoiesducode.fr/rss"),
+//                new XElement(LINK, @"http://www.lequipe.fr/rss/actu_rss.xml"),
+//                new XElement(LINK, @"http://www.lequipe.fr/rss/videos_rss.xml"),
+//                new XElement(LINK, @"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/")
+//                );
+//
+//                //new XElement(LINK, @"http://www.bonjourmadame/rss"),
+//            xDoc.Add(xe);
+
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await folder.CreateFileAsync(FILE_NAME, CreationCollisionOption.ReplaceExisting);
+            using (Stream s = await file.OpenStreamForWriteAsync())
+            {
+                xDoc.Save(s);
+            }
         }
 
-        #endregion
+        private List<string> listFlux;
 
-        #region ISauvegardeManager Members
-
-
-        public IEnumerable<string> LoadLinks()
+        public async void LoadListLinks()
         {
-            List<string> listFlux = new List<string>();
+           
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            using (Stream s = await folder.OpenStreamForReadAsync(FILE_NAME))
+            {
+                xDoc = XDocument.Load(s);
+            }
 
-            XDocument xDoc = XDocument.Load(FILE_NAME);
+            listFlux = new List<string>();
 
-            foreach(var xLink in xDoc.Elements(LINK))
+            foreach(var xLink in xDoc.Descendants(LINK))
             {
                 listFlux.Add(xLink.Value);
             }
+            OnListLinksLoaded();
+        }
 
+        public event EventHandler<EventArgs> ListLinksLoaded;
+        private void OnListLinksLoaded()
+        {
+            if(ListLinksLoaded != null)
+            {
+                ListLinksLoaded.Invoke(this, null);
+            }
+        }
+
+        IEnumerable<string> ISauvegardeManager.GetLinks()
+        {
             return listFlux;
         }
 

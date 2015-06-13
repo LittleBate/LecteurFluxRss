@@ -35,15 +35,15 @@ namespace WPRssReader.ViewModel
         {
             manager = FluxManager.getInstance();
             manager.SauvegardeManager = new SauvegardeManagerXml();
-            
+            manager.loadLinks();
 
-            manager.LoadALink(@"http://www.developpez.com/index/rss");
-            manager.LoadALink(@"http://radiofrance-podcast.net/podcast09/rss_13100.xml");
-            manager.LoadALink(@"http://lesjoiesducode.fr/rss");
-            manager.LoadALink(@"http://www.lequipe.fr/rss/actu_rss.xml");
-            manager.LoadALink(@"http://www.lequipe.fr/rss/videos_rss.xml");
-            manager.LoadALink(@"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/");
-
+//            manager.LoadALink(@"http://www.developpez.com/index/rss");
+//            manager.LoadALink(@"http://radiofrance-podcast.net/podcast09/rss_13100.xml");
+//            manager.LoadALink(@"http://lesjoiesducode.fr/rss");
+//            manager.LoadALink(@"http://www.lequipe.fr/rss/actu_rss.xml");
+//            manager.LoadALink(@"http://www.lequipe.fr/rss/videos_rss.xml");
+//            manager.LoadALink(@"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/");
+//
             VMFlux = new VMFlux();
             VMArticle = new VMArticle();
             VMAjoutFlux = new VMAjoutFlux();
