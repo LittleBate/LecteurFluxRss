@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Media.Imaging;
+using WPRssReader.Common;
 
 namespace WPRssReader.ViewModel
 {
@@ -38,6 +40,41 @@ namespace WPRssReader.ViewModel
                 return new BitmapImage(new Uri(CurrentArticle.IconUrl, UriKind.Absolute));
             }
         }
+
+        private RelayCommand cmdAddToFavori;
+        public ICommand CmdAddToFavori
+        {
+            get
+            {
+                if(cmdAddToFavori == null)
+                {
+                }
+                return cmdAddToFavori;
+            }
+        }
+
+        private void AddToFavori(Article article)
+        {
+            FluxManager.getInstance().AddArticleFavori(article);
+        }
+
+        private RelayCommand cmdAddTag;
+        public ICommand CmdAddTag
+        {
+            get
+            {
+                if(cmdAddTag == null)
+                {
+                }
+                return cmdAddTag;
+            }
+        }
+
+        private void AddTag(Article article)
+        {
+
+        }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 

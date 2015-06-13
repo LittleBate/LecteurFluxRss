@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WPRssReader.ViewModel;
+using Buisness;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -113,7 +114,7 @@ namespace WPRssReader
 
         private void ArticleSelecedChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (this.Frame == null)
+            if (this.Frame == null || this.Frame.CurrentSourcePageType != typeof(VFlux))
                 return;
             this.Frame.Navigate(typeof(VArticle));
         }

@@ -1,6 +1,7 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\bate\documents\github\lecteurfluxrss\projet\lecteurfluxrss\wprssreader\obj\debug\intermediatexaml\wprssreader.exe" HashGuid="6400c1e3-0d29-76c5-b308-b4b4e8b5326b" />
-    <ReferenceAssembly PathName="c:\users\bate\documents\github\lecteurfluxrss\projet\lecteurfluxrss\businesswp\bin\debug\businesswp.dll" HashGuid="98b4cc4b-1202-4b01-266e-6c156adae453" />
+    <LocalAssembly PathName="c:\users\bate\documents\github\lecteurfluxrss\projet\lecteurfluxrss\wprssreader\obj\debug\intermediatexaml\wprssreader.exe" HashGuid="05add1cd-d9a3-6b27-3ee8-14ae65a2cf1c" />
+    <ReferenceAssembly PathName="c:\users\bate\documents\github\lecteurfluxrss\projet\lecteurfluxrss\businesswp\bin\debug\businesswp.dll" HashGuid="78c57706-163e-48fd-fda2-960e825cf5c4" />
+    <ReferenceAssembly PathName="c:\users\bate\documents\github\lecteurfluxrss\projet\lecteurfluxrss\datawp\bin\debug\datawp.dll" HashGuid="de4840e7-cf41-1818-5698-f5cfee720699" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

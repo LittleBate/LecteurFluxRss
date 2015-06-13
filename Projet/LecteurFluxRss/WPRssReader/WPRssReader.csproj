@@ -160,6 +160,10 @@
       <Project>{e42a00dc-09b2-4204-981d-ea37da0af16c}</Project>
       <Name>BusinessWP</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataWP\DataWP.csproj">
+      <Project>{969ceaee-d6b4-47e1-8a75-f72742ef8fa0}</Project>
+      <Name>DataWP</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

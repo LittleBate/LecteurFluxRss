@@ -61,4 +61,24 @@
             </Grid>
         </Grid>
     </ScrollViewer>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="btnBarAddTag" 
+                          x:Name="btnBarAddTag" 
+                          Label="add tag" 
+                          Icon="Tag"
+                          Command="{Binding CmdAddTag}" />
+            <AppBarButton x:Uid="btnBarAddFavori" 
+                          x:Name="btnBarAddFavori" 
+                          Label="add to favori" 
+                          Icon="Favorite"
+                          Command="{Binding CmdAddToFavori}" />
+            <AppBarButton x:Uid="btnBarShowWebPage" 
+                          x:Name="btnBarShowWebPage" 
+                          Label="show web page" 
+                          Icon="Link"
+                          Command="{Binding CmdShowWebPage}" />
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

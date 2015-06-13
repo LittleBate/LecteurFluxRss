@@ -143,11 +143,10 @@ namespace Buisness
             {
                 return;
             }
-            AddAllFlux(sauvegardeManager.Load());
-            foreach (var f in listeFlux.Where(f => String.IsNullOrEmpty(f.Title)).ToList())
-            {
-                LoadALink(f.Link);   
-            }
+            foreach (var link in sauvegardeManager.LoadLinks())
+	        {
+                LoadALink(link);
+	        }
         }
         
         #endregion

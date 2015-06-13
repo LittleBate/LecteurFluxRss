@@ -5,6 +5,7 @@
     xmlns:local="using:WPRssReader"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -37,13 +38,14 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
                        Text="Articles : "/>
             <ListBox Grid.Row="1"
                      ItemsSource="{Binding CurrentFlux.ListArticle}"
                      ItemTemplate="{StaticResource ListBox_Item_Article_Template}"
+                     HorizontalContentAlignment="Right"
                      SelectedItem="{Binding VMApplication.VMArticle.CurrentArticle, Mode=TwoWay}"
                      SelectionChanged="ArticleSelecedChanged"/>
             <TextBlock Grid.Row="2"
@@ -54,4 +56,18 @@
             </ListBox>
         </Grid>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="btnBarAddTag" 
+                          x:Name="btnBarAddTag" 
+                          Label="add tag" 
+                          Icon="Tag"
+                          Command="{Binding CmdAddTag}" />
+            <AppBarButton x:Uid="btnBarAddFavori" 
+                          x:Name="btnBarAddFavori" 
+                          Label="add to favori" 
+                          Icon="Favorite"
+                          Command="{Binding CmdAddToFavori}" />
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPRssReader.Common;
 
 namespace WPRssReader.ViewModel
 {
@@ -40,7 +42,43 @@ namespace WPRssReader.ViewModel
                 return VMApplication.Instance;
             }
         }
+            
+        private RelayCommand cmdAddToFavori;
+        public ICommand CmdAddToFavori
+        {
+            get
+            {
+                if(cmdAddToFavori == null)
+                {
+                }
+                return cmdAddToFavori;
+            }
+        }
 
+        private void AddToFavori(Flux flux)
+        {
+        }
+
+        private RelayCommand cmdAddTag;
+        public ICommand CmdAddTag
+        {
+            get
+            {
+                if(cmdAddTag == null)
+                {
+                    cmdAddTag = new RelayCommand(() =>
+                    {
+
+                    });
+                }
+                return cmdAddTag;
+            }
+        }
+
+        private void AddTag(Flux flux)
+        {
+
+        }
         
         public event PropertyChangedEventHandler PropertyChanged;
 

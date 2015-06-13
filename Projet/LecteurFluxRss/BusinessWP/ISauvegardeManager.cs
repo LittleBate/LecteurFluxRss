@@ -34,5 +34,17 @@ namespace Buisness
         /// </summary>
         /// <param name="art">article à ajouter</param>
         void AddAlirePlustard(Article art);
+
+        /// <summary>
+        /// Enregistre le lien d'un flux rss
+        /// </summary>
+        /// <param name="link">lien du flux rss à sauvegarder</param>
+        void SaveRssLink(string link);
+
+        /// <summary>
+        /// Charge les liens rss de l'utilisateur
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<string> LoadLinks();
     }
 }
