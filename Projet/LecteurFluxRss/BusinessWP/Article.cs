@@ -170,7 +170,8 @@ namespace Buisness
             sb.Append("\t").Append("DatePublication : ").Append(DatePublication).Append("\n");
             sb.Append("\t").Append("Link : ").Append(Link).Append("\n");
             sb.Append("\t").Append("Description : ").Append(Description).Append("\n\n");
-            return sb.ToString();
+            //return sb.ToString();
+            return "";
         }
 
 

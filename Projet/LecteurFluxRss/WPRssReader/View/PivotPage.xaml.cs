@@ -118,5 +118,33 @@ namespace WPRssReader
             this.Frame.Navigate(typeof(VFlux));
         }
 
+        private void pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(pivot.SelectedIndex == 0)
+            {
+                btnBarRefresh.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                btnBarValider.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                btnBarRecherche.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+            else if(pivot.SelectedIndex == 1)
+            {
+                btnBarRefresh.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                btnBarValider.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                btnBarRecherche.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+            else if(pivot.SelectedIndex == 2)
+            {
+                btnBarRefresh.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                btnBarValider.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                btnBarRecherche.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+            else if(pivot.SelectedIndex == 3)
+            {
+                btnBarRefresh.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                btnBarValider.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                btnBarRecherche.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
     }
 }

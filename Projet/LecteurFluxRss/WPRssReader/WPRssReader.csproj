@@ -80,6 +80,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Page Include="View\PivotArticle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PivotPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +123,9 @@
     <Compile Include="ViewModel\VMFlux.cs" />
     <Compile Include="ViewModel\VMRecherche.cs" />
     <Compile Include="ViewModel\VMResultat.cs" />
+    <Compile Include="View\PivotArticle.xaml.cs">
+      <DependentUpon>PivotArticle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PivotPage.xaml.cs">
       <DependentUpon>PivotPage.xaml</DependentUpon>
     </Compile>

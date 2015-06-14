@@ -35,6 +35,22 @@ namespace WPRssReader.ViewModel
             }
         }
 
+        private const string CURRENT_ARTICLE = "CurrentArticle";
+        private Article currentArticle;
+        public Article CurrentArticle
+        {
+            get
+            {
+                return currentArticle;
+            }
+            set
+            {
+                currentArticle = value;
+                VMApplication.Instance.VMArticle.CurrentArticle = CurrentArticle;
+                OnPropertyChanged(CURRENT_ARTICLE);
+            }
+        }
+
         public VMApplication VMApplication
         {
             get

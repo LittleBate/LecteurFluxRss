@@ -23,6 +23,7 @@
         <Pivot x:Uid="Pivot" 
                Title="RssReaser"
                x:Name="pivot"
+               SelectionChanged="pivot_SelectionChanged"
                CommonNavigationTransitionInfo.IsStaggerElement="True">
             <!-- Pivot affichant les Flux rss de l'utilisateur -->
             <PivotItem x:Uid="piListeFlux" 
@@ -135,5 +136,24 @@
             </PivotItem>
         </Pivot>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="btnBarValider" 
+                          x:Name="btnBarValider" 
+                          Label="Valider" 
+                          Icon="Accept"
+                          Command="{Binding CmdValider}" />
+            <AppBarButton x:Uid="btnBarRecherche" 
+                          x:Name="btnBarRecherche" 
+                          Label="Rechercher" 
+                          Icon="Find"
+                          Command="{Binding CmdRechercher}" />
+            <AppBarButton x:Uid="btnBarRefresh" 
+                          x:Name="btnBarRefresh" 
+                          Label="Rafraichir" 
+                          Icon="Refresh"
+                          Command="{Binding CmdRefresh}" />
+        </CommandBar>
+    </Page.BottomAppBar>
 
 </Page>

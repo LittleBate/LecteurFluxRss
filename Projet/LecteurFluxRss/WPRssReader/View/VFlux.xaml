@@ -46,7 +46,7 @@
                      ItemsSource="{Binding CurrentFlux.ListArticle}"
                      ItemTemplate="{StaticResource ListBox_Item_Article_Template}"
                      HorizontalContentAlignment="Right"
-                     SelectedItem="{Binding VMApplication.VMArticle.CurrentArticle, Mode=TwoWay}"
+                     SelectedItem="{Binding CurrentArticle, Mode=TwoWay}"
                      SelectionChanged="ArticleSelecedChanged"/>
             <TextBlock Grid.Row="2"
                        Text="Tags : "/>

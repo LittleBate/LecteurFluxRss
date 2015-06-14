@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WPRssReader.ViewModel;
 using Buisness;
+using WPRssReader.View;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -116,7 +117,8 @@ namespace WPRssReader
         {
             if (this.Frame == null || this.Frame.CurrentSourcePageType != typeof(VFlux))
                 return;
-            this.Frame.Navigate(typeof(VArticle));
+            //this.Frame.Navigate(typeof(VArticle));
+            this.Frame.Navigate(typeof(PivotArticle));
         }
     }
 }
