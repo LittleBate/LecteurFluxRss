@@ -137,5 +137,12 @@ namespace WPRssReader
             await SuspensionManager.SaveAsync();
             deferral.Complete();
         }
+
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+        }
+
     }
 }

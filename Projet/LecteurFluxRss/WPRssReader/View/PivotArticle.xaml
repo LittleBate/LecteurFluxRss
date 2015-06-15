@@ -15,11 +15,17 @@
         </Grid.RowDefinitions>
 
         
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+        <Grid Grid.Row="0" Margin="19,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
            <TextBlock Text="RssReader"
                       Style="{ThemeResource TitleTextBlockStyle}" 
                       Margin="0,12,0,0"/>
-        </StackPanel>
+           <Button Content="Back" Click="Button_Click"
+                   Grid.Column="1"/>
+        </Grid>
 
         <FlipView x:Uid="Pivot" 
                x:Name="pivot"

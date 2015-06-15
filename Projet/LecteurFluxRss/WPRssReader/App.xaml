@@ -30,7 +30,7 @@
         <DataTemplate x:Key="ListBox_Item_Article_Template">
             <Grid>
                 <Border BorderBrush="White"
-                        Width="330"
+                        Width="340"
                         BorderThickness="1"
                         Padding="5">
                     <Grid Height="100">

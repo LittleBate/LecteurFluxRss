@@ -37,5 +37,11 @@ namespace WPRssReader.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            this.Frame.GoBack();
+        }
     }
 }
