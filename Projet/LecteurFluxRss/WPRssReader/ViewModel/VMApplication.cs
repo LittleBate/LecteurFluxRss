@@ -7,6 +7,8 @@ using Buisness;
 using System.Collections.ObjectModel;
 using DataWP;
 using Windows.UI.Xaml.Controls;
+using WPRssReader.Common;
+using System.Windows.Input;
 
 namespace WPRssReader.ViewModel
 {
@@ -58,5 +60,22 @@ namespace WPRssReader.ViewModel
         public VMArticle VMArticle { get; private set; }
 
         public VMAjoutFlux VMAjoutFlux { get; private set; }
+
+        private RelayCommand cmdRefresh;
+        public ICommand CmdRefresh
+        {
+            get
+            {
+                if(cmdRefresh == null)
+                {
+                    cmdRefresh = new RelayCommand(() =>
+                    {
+                        manager.ClearListFlux();
+                        manager.loadLinks();
+                    });
+                }
+                return cmdRefresh;
+            }
+        }
     }
 }

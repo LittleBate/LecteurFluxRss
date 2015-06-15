@@ -149,6 +149,11 @@ namespace Buisness
             sauvegardeManager.LoadListLinks();
         }
 
+        public void ClearListFlux()
+        {
+            ListeFlux.Clear();
+        }
+
         /// <summary>
         /// Chargement des données sauvegardées.
         /// </summary>
