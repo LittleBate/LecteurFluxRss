@@ -59,20 +59,11 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
-                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0"
                                Text="Liens : "/>
                     <TextBox Grid.Row="1"
                              Text="{Binding Liens, Mode=TwoWay}"/>
-                    <!--<TextBlock Grid.Row="2"
-                               Text="Titre : "/>
-                    <TextBox Grid.Row="3"
-                             Text="{Binding Titre}"/>-->
-                    <Button Grid.Row="5"
-                            Content="Valider"
-                            HorizontalAlignment="Stretch"
-                            Command="{Binding CmdAjoutFlux}"/>
                 </Grid>
             </PivotItem>
 
@@ -88,7 +79,6 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition />
-                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0"
                                Text="Tags : "/>
@@ -100,10 +90,6 @@
                     <ListBox Grid.Row="3"
                              ItemsSource="{Binding TagsCherches}">
                     </ListBox>
-                    <Button Grid.Row="5"
-                            Content="Rechercher"
-                            Command="{Binding CmdRechercher}"
-                            HorizontalAlignment="Stretch"/>
                 </Grid>
             </PivotItem>
 
@@ -142,12 +128,12 @@
                           x:Name="btnBarValider" 
                           Label="Valider" 
                           Icon="Accept"
-                          Command="{Binding CmdValider}" />
+                          Command="{Binding VMAjoutFlux.CmdAjoutFlux}" />
             <AppBarButton x:Uid="btnBarRecherche" 
                           x:Name="btnBarRecherche" 
                           Label="Rechercher" 
                           Icon="Find"
-                          Command="{Binding CmdRechercher}" />
+                          Command="{Binding VMRecherche.CmdRechercher}" />
             <AppBarButton x:Uid="btnBarRefresh" 
                           x:Name="btnBarRefresh" 
                           Label="Rafraichir" 

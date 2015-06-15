@@ -9,64 +9,77 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <Pivot x:Uid="Pivot" 
-               Title="RssReaser"
+        
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+           <TextBlock Text="RssReader"
+                      Style="{ThemeResource TitleTextBlockStyle}" 
+                      Margin="0,12,0,0"/>
+        </StackPanel>
+
+        <FlipView x:Uid="Pivot" 
                x:Name="pivot"
+                  Grid.Row="1"
                ItemsSource="{Binding CurrentFlux.ListArticle}"  
                SelectedItem="{Binding CurrentArticle}"
                CommonNavigationTransitionInfo.IsStaggerElement="True">
-            <Pivot.ItemTemplate>
+            <FlipView.ItemTemplate>
                 <DataTemplate>
-                    <Grid x:Name="LayoutRoot">
+                    <ScrollViewer>
+                        <Grid x:Name="LayoutRoot">
 
-                        <Grid.ChildrenTransitions>
-                            <TransitionCollection>
-                                <EntranceThemeTransition/>
-                            </TransitionCollection>
-                        </Grid.ChildrenTransitions>
+                            <Grid.ChildrenTransitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition/>
+                                </TransitionCollection>
+                            </Grid.ChildrenTransitions>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-                            <TextBlock Text="{Binding Title}" 
-                                       TextWrapping="WrapWholeWords"
-                                       FontSize="40"
-                                       Margin="0,-6.5,0,26.5" 
-                                       Style="{ThemeResource HeaderTextBlockStyle}" 
-                                       CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
-                        </StackPanel>
-
-                        <Grid Grid.Row="1" 
-                                  x:Name="ContentRoot"
-                                  Margin="19,9.5,19,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition />
+                                <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock  Grid.Row="0"
-                                           Text="{Binding Author}"/>
 
-                            <TextBlock Grid.Row="0"
-                                           Text="{Binding DatePublication}"/>
-
-                            <TextBlock Grid.Row="1"
-                                           Style="{StaticResource TextBlockNormalFontStyle}"
+                            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                                <TextBlock Text="{Binding Title}" 
                                            TextWrapping="WrapWholeWords"
-                                           Text="{Binding Description}"/>
+                                           FontSize="40"
+                                           Margin="0,-6.5,0,26.5" 
+                                           Style="{ThemeResource HeaderTextBlockStyle}" 
+                                           CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+                            </StackPanel>
 
-                            <Image Grid.Row="2" Source="{Binding ImageUrl}"/>
+                            <Grid Grid.Row="1" 
+                                      x:Name="ContentRoot"
+                                      Margin="19,9.5,19,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock  Grid.Row="0"
+                                               Text="{Binding Author}"/>
+
+                                <TextBlock Grid.Row="0"
+                                               Text="{Binding DatePublication}"/>
+
+                                <TextBlock Grid.Row="1"
+                                               Style="{StaticResource TextBlockNormalFontStyle}"
+                                               TextWrapping="WrapWholeWords"
+                                               Text="{Binding Description}"/>
+
+                                <Image Grid.Row="2" Source="{Binding ImageUrl}"/>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </ScrollViewer>
                 </DataTemplate>
-            </Pivot.ItemTemplate>
-        </Pivot>
+            </FlipView.ItemTemplate>
+        </FlipView>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>

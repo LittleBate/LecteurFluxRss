@@ -55,6 +55,7 @@ namespace DataWP
         {
             xDoc.Element(LINKS_LIST).Add(new XElement(LINK, link));
 
+//            xDoc = new XDocument();
 //            XElement xe = new XElement(LINKS_LIST, 
 //                new XElement(LINK, @"http://www.developpez.com/index/rss"),
 //                new XElement(LINK, @"http://radiofrance-podcast.net/podcast09/rss_13100.xml"),
@@ -63,9 +64,9 @@ namespace DataWP
 //                new XElement(LINK, @"http://www.lequipe.fr/rss/videos_rss.xml"),
 //                new XElement(LINK, @"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/")
 //                );
-//
-//                //new XElement(LINK, @"http://www.bonjourmadame/rss"),
-//            xDoc.Add(xe);
+// 
+//          //        new XElement(LINK, @"http: www.bonjourmadame/rss"),
+             //xDoc.Add(xe);
 
             StorageFolder folder = ApplicationData.Current.LocalFolder;
             StorageFile file = await folder.CreateFileAsync(FILE_NAME, CreationCollisionOption.ReplaceExisting);

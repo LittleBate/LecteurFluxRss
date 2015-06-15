@@ -22,8 +22,10 @@ namespace WPRssReader.ViewModel
             { 
                 if(cmdAjoutFlux == null)
                 {
-                    cmdAjoutFlux = new RelayCommand(
-                        AjoutFlux
+                    cmdAjoutFlux = new RelayCommand(() =>
+                        {
+                            AjoutFlux();
+                        }
                     );
                 }
                 return cmdAjoutFlux; 
