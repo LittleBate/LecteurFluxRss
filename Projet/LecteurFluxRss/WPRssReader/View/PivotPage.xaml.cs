@@ -113,11 +113,6 @@ namespace WPRssReader
 
         #endregion
 
-        private void FluxSelectionneChanged(object sender, SelectionChangedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(VFlux));
-        }
-
         private void pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(pivot.SelectedIndex == 0)

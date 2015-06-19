@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using WPRssReader.Common;
+using WPRssReader.View;
 
 namespace WPRssReader.ViewModel
 {
@@ -31,6 +34,7 @@ namespace WPRssReader.ViewModel
                 if (value == currentFlux)
                     return;
                 currentFlux = value;
+                ((Frame)Window.Current.Content).Navigate(typeof(VFlux));
                 OnPropertyChanged(CURRENT_FLUX);
             }
         }
@@ -47,6 +51,9 @@ namespace WPRssReader.ViewModel
             {
                 currentArticle = value;
                 VMApplication.Instance.VMArticle.CurrentArticle = CurrentArticle;
+                Frame frame = (Frame)Window.Current.Content;
+                if (frame != null && frame.CurrentSourcePageType == typeof(VFlux))
+                    frame.Navigate(typeof(PivotArticle));
                 OnPropertyChanged(CURRENT_ARTICLE);
             }
         }

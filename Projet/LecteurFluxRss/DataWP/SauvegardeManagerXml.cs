@@ -18,7 +18,32 @@ namespace DataWP
         public SauvegardeManagerXml()
         {
             xDoc = new XDocument();
-            //SaveRssLink("");
+            //InitFile();
+        }
+
+        private async void InitFile()
+        {
+            xDoc = new XDocument();
+            XElement xe = new XElement(LINKS_LIST,
+                new XElement(LINK, @"http://www.developpez.com/index/rss"),
+                new XElement(LINK, @"http://radiofrance-podcast.net/podcast09/rss_13100.xml"),
+                new XElement(LINK, @"http://lesjoiesducode.fr/rss"),
+                new XElement(LINK, @"http://www.lequipe.fr/rss/actu_rss.xml"),
+                new XElement(LINK, @"http://www.futura-sciences.com/rss/actualites.xml"),
+                new XElement(LINK, @"http://rss.nouvelobs.com/c/32581/fe.ed/www.sciencesetavenir.fr/rss.xml"),
+                new XElement(LINK, @"http://www.science-et-vie.com/feed/"),
+                new XElement(LINK, @"http://www.scienceshumaines.com/rss/"),
+                new XElement(LINK, @"http://ux-fr.com/feed/"),
+                new XElement(LINK, @"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/")
+                );
+
+            xDoc.Add(xe);
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await folder.CreateFileAsync(FILE_NAME, CreationCollisionOption.ReplaceExisting);
+            using (Stream s = await file.OpenStreamForWriteAsync())
+            {
+                xDoc.Save(s);
+            }
         }
 
         #region CONST
@@ -54,19 +79,6 @@ namespace DataWP
         public async void SaveRssLink(string link)
         {
             xDoc.Element(LINKS_LIST).Add(new XElement(LINK, link));
-
-//            xDoc = new XDocument();
-//            XElement xe = new XElement(LINKS_LIST, 
-//                new XElement(LINK, @"http://www.developpez.com/index/rss"),
-//                new XElement(LINK, @"http://radiofrance-podcast.net/podcast09/rss_13100.xml"),
-//                new XElement(LINK, @"http://lesjoiesducode.fr/rss"),
-//                new XElement(LINK, @"http://www.lequipe.fr/rss/actu_rss.xml"),
-//                new XElement(LINK, @"http://www.lequipe.fr/rss/videos_rss.xml"),
-//                new XElement(LINK, @"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/")
-//                );
-// 
-//          //        new XElement(LINK, @"http: www.bonjourmadame/rss"),
-             //xDoc.Add(xe);
 
             StorageFolder folder = ApplicationData.Current.LocalFolder;
             StorageFile file = await folder.CreateFileAsync(FILE_NAME, CreationCollisionOption.ReplaceExisting);

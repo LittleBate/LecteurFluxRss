@@ -5,6 +5,7 @@
     xmlns:local="using:WPRssReader"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:data="using:WPRssReader.Data"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     mc:Ignorable="d"
@@ -31,7 +32,6 @@
                        Header="Mes Flux"
                        CommonNavigationTransitionInfo.IsStaggerElement="True">
                 <ListBox ItemsSource="{Binding ListeFlux}"
-                         SelectionChanged="FluxSelectionneChanged"
                          SelectedItem ="{Binding VMFlux.CurrentFlux, Mode=TwoWay}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
