@@ -89,8 +89,17 @@ namespace DataWP
             }
         }
 
+        /// <summary>
+        /// Liste des liens de flux rss de l'utilisateur
+        /// </summary>
         private List<string> listFlux;
 
+        /// <summary>
+        /// Vérifie l'existance d'un fichier dans le storagefolder donné
+        /// </summary>
+        /// <param name="fileName">nom du fichier cherché</param>
+        /// <param name="folder">dossier contenant le fichier</param>
+        /// <returns>retourne true si le fichier existe, false sinon</returns>
         private async Task<bool> FileExists(string fileName, StorageFolder folder)
         {
             try
