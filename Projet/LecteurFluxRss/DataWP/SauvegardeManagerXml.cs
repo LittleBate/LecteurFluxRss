@@ -33,6 +33,7 @@ namespace DataWP
                 new XElement(LINK, @"http://rss.nouvelobs.com/c/32581/fe.ed/www.sciencesetavenir.fr/rss.xml"),
                 new XElement(LINK, @"http://www.science-et-vie.com/feed/"),
                 new XElement(LINK, @"http://www.scienceshumaines.com/rss/"),
+                new XElement(LINK, @"http://www.bonjourmadame.fr/rss"),
                 new XElement(LINK, @"http://ux-fr.com/feed/"),
                 new XElement(LINK, @"http://liberation.fr.feedsportal.com/c/32268/fe.ed/rss.liberation.fr/rss/19/")
                 );
@@ -48,7 +49,7 @@ namespace DataWP
 
         #region CONST
 
-        private const string FILE_NAME = "rssLink.xml";
+        private const string FILE_NAME = "rssLinks.xml";
         private const string LINKS_LIST = "LinksList";
         private const string LINK = "Link";
 
@@ -90,13 +91,33 @@ namespace DataWP
 
         private List<string> listFlux;
 
+        private async Task<bool> FileExists(string fileName, StorageFolder folder)
+        {
+            try
+            {
+                StorageFile file = await folder.GetFileAsync(fileName); 
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         public async void LoadListLinks()
         {
-           
             StorageFolder folder = ApplicationData.Current.LocalFolder;
-            using (Stream s = await folder.OpenStreamForReadAsync(FILE_NAME))
+
+            if(FileExists(FILE_NAME, folder).Result)
             {
-                xDoc = XDocument.Load(s);
+                using (Stream s = await folder.OpenStreamForReadAsync(FILE_NAME))
+                {
+                    xDoc = XDocument.Load(s);
+                }
+            }
+            else
+            {
+                InitFile();
             }
 
             listFlux = new List<string>();
