@@ -31,6 +31,6 @@ namespace Buisness
         /// <summary>
         /// Définit ou obtient la date de publication de l'article
         /// </summary>
-        DateTime? DatePublication { get; set; }
+        DateTime DatePublication { get; set; }
     }
 }

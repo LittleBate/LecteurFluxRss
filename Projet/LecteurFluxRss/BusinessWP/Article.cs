@@ -84,11 +84,11 @@ namespace Buisness
             }
         }
 
-        private DateTime? datePublication;
+        private DateTime datePublication;
         /// <summary>
         /// Definit ou Obtient la date de publication de l'article
         /// </summary>
-        public DateTime? DatePublication
+        public DateTime DatePublication
         {
             get
             {
