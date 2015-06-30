@@ -49,7 +49,7 @@ namespace DataWP
 
         #region CONST
 
-        private const string FILE_NAME = "rssLinks.xml";
+        private const string FILE_NAME = "rssListLink.xml";
         private const string LINKS_LIST = "LinksList";
         private const string LINK = "Link";
 
@@ -94,6 +94,26 @@ namespace DataWP
         /// </summary>
         private List<string> listFlux;
 
+        private bool xmlFileExists = false;
+        public bool XmlFileExists
+        {
+            get 
+            {
+                if(!xmlFileExists)
+                {
+                    if (FileExists(FILE_NAME, ApplicationData.Current.LocalFolder).Result)
+                        return true;
+                    return false;
+                }
+                return true; 
+            }
+            set 
+            {
+                xmlFileExists = value; 
+            }
+        }
+
+
         /// <summary>
         /// Vérifie l'existance d'un fichier dans le storagefolder donné
         /// </summary>
@@ -104,6 +124,7 @@ namespace DataWP
         {
             try
             {
+
                 StorageFile file = await folder.GetFileAsync(fileName); 
             }
             catch
@@ -115,18 +136,18 @@ namespace DataWP
 
         public async void LoadListLinks()
         {
-            StorageFolder folder = ApplicationData.Current.LocalFolder;
-
-            if(FileExists(FILE_NAME, folder).Result)
+            if (XmlFileExists)
             {
-                using (Stream s = await folder.OpenStreamForReadAsync(FILE_NAME))
+                using (Stream s = await ApplicationData.Current.LocalFolder.OpenStreamForReadAsync(FILE_NAME))
                 {
                     xDoc = XDocument.Load(s);
                 }
+                XmlFileExists = true;
             }
             else
             {
                 InitFile();
+                XmlFileExists = true;
             }
 
             listFlux = new List<string>();
