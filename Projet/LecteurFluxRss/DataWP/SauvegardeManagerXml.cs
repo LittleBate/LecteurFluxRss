@@ -95,6 +95,9 @@ namespace DataWP
         private List<string> listFlux;
 
         private bool xmlFileExists = false;
+        /// <summary>
+        /// Définit ou obtient un booleen qui permet de determiner si le fichier xml existe
+        /// </summary>
         public bool XmlFileExists
         {
             get 
@@ -112,7 +115,6 @@ namespace DataWP
                 xmlFileExists = value; 
             }
         }
-
 
         /// <summary>
         /// Vérifie l'existance d'un fichier dans le storagefolder donné

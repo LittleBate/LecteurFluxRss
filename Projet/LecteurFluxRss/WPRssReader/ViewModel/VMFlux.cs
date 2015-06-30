@@ -14,7 +14,7 @@ using WPRssReader.View;
 
 namespace WPRssReader.ViewModel
 {
-    public class VMFlux : INotifyPropertyChanged
+    public class VMFlux 
     {
         public VMFlux()
         {
@@ -35,7 +35,6 @@ namespace WPRssReader.ViewModel
                     return;
                 currentFlux = value;
                 ((Frame)Window.Current.Content).Navigate(typeof(VFlux));
-                OnPropertyChanged(CURRENT_FLUX);
             }
         }
 
@@ -54,7 +53,6 @@ namespace WPRssReader.ViewModel
                 Frame frame = (Frame)Window.Current.Content;
                 if (frame != null && frame.CurrentSourcePageType == typeof(VFlux))
                     frame.Navigate(typeof(PivotArticle));
-                OnPropertyChanged(CURRENT_ARTICLE);
             }
         }
 
@@ -101,15 +99,6 @@ namespace WPRssReader.ViewModel
         private void AddTag(Flux flux)
         {
 
-        }
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-                handler(this, new PropertyChangedEventArgs(propertyName));
         }
         
     }

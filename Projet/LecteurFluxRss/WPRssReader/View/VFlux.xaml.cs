@@ -113,12 +113,5 @@ namespace WPRssReader
 
         #endregion
 
-        private void ArticleSelecedChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (this.Frame == null || this.Frame.CurrentSourcePageType != typeof(VFlux))
-                return;
-            //this.Frame.Navigate(typeof(VArticle));
-            this.Frame.Navigate(typeof(PivotArticle));
-        }
     }
 }
