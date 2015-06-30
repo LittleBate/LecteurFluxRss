@@ -56,6 +56,14 @@ namespace WPRssReader.ViewModel
             }
         }
 
+        public Uri CurrentArticleLink
+        {
+            get
+            {
+                return new Uri(CurrentArticle.Link);
+            }
+        }
+
         public VMApplication VMApplication
         {
             get
@@ -93,6 +101,23 @@ namespace WPRssReader.ViewModel
                     });
                 }
                 return cmdAddTag;
+            }
+        }
+
+        private RelayCommand cmdShowWebPage;
+        public ICommand CmdShowWebPage
+        {
+            get
+            {
+                if(cmdShowWebPage == null)
+                {
+                    cmdShowWebPage = new RelayCommand(() =>
+                    {
+                        Frame frame = (Frame)Window.Current.Content;
+                        frame.Navigate(typeof(VArticle));
+                    });
+                }
+                return cmdShowWebPage;
             }
         }
 

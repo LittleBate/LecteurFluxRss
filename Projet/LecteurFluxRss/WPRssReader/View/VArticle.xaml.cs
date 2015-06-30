@@ -38,7 +38,7 @@ namespace WPRssReader
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
-            DataContext = VMApplication.Instance.VMArticle;
+            DataContext = VMApplication.Instance.VMFlux;
         }
 
         /// <summary>
