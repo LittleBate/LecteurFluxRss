@@ -60,6 +60,11 @@ namespace Buisness
         /// URL
         /// </summary>
         private const string URL = "url";
+        private const string FEED = "feed";
+        private const string NAME = "name";
+        private const string ENTRY = "entry";
+        private const string SUMMARY = "summary";
+        private const string UPDATED = "updated";
 
         #endregion
 
@@ -160,6 +165,45 @@ namespace Buisness
         /// <returns>le flux rss chargé</returns>
         private Flux LoadFlux(XDocument xDoc)
         {
+            if (xDoc.Descendants(CHANNEL).Count() > 0)
+                return LoadFluxRss(xDoc);
+            else
+                return LoadFluxAtom(xDoc);
+        }
+
+        private Flux LoadFluxAtom(XDocument xDoc)
+        {
+            XElement xFlux = xDoc.Descendants(FEED).FirstOrDefault();
+            if(xFlux == null)
+            {
+                return null;
+            }
+            Flux flux = new Flux()
+            {
+                Title = xFlux.Element(TITLE).Value,
+                Link = xFlux.Element(LINK).Value,
+            };
+            foreach (var xItem in xFlux.Elements(ENTRY).ToList())
+            {
+                var article = new Article()
+                {
+                    Title = xItem.Element(TITLE).Value,
+                    Link = xItem.Element(LINK).Value,
+                    Description = xItem.Element(SUMMARY).Value
+                };
+                if (xItem.Element(UPDATED) != null)
+                {
+                    DateTime date;
+                    DateTime.TryParse(xItem.Element(UPDATED).Value, out date);
+                    article.DatePublication = date;
+                }
+                flux.AddArticle(article);
+            }
+            return flux;
+        }
+
+        private Flux LoadFluxRss(XDocument xDoc)
+        {
             XElement xFlux = xDoc.Descendants(CHANNEL).First();
             Flux flux = new Flux()
             {
@@ -188,6 +232,7 @@ namespace Buisness
                 flux.AddArticle(article);
             }
             return flux;
+
         }
 
         /// <summary>

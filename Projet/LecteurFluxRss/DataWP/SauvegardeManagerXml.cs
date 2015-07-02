@@ -79,6 +79,10 @@ namespace DataWP
 
         public async void SaveRssLink(string link)
         {
+            if(listFlux.Contains(link))
+            {
+                return;
+            }
             xDoc.Element(LINKS_LIST).Add(new XElement(LINK, link));
 
             StorageFolder folder = ApplicationData.Current.LocalFolder;
