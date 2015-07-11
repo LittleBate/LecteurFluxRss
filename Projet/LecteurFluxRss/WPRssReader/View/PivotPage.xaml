@@ -40,7 +40,13 @@
                                     <Style TargetType="TextBlock"
                                            BasedOn="{StaticResource DefaultTextBlockStyle}"/>
                                 </StackPanel.Resources>
-                                <TextBlock Text="{Binding Title}"/>
+                                <Border BorderBrush="White"
+                                        BorderThickness="1"
+                                        Height="50"
+                                        Width="340"
+                                        Padding="5">
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding Title}"/>
+                                </Border>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
