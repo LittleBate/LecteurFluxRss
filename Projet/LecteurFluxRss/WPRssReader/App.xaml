@@ -39,7 +39,7 @@
                                    BasedOn="{StaticResource DefaultTextBlockStyle}"/>
                         </Grid.Resources>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition />
                             <RowDefinition/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
@@ -53,7 +53,9 @@
                                Height="30"
                                Margin="0, 0, 4, 0"/>
                         <TextBlock Grid.Row="0"
+                                   Grid.RowSpan="2"
                                    Grid.Column="1"
+                                   TextWrapping="Wrap"
                                    Text="{Binding Title}"/>
                         <TextBlock Grid.Row="2"
                                    Grid.Column="0"
@@ -61,12 +63,12 @@
                                    Margin="0, 3"
                                    Text="{Binding DatePublication}"
                                    Style="{StaticResource TextBlockNormalFontStyle}"/>
-                        <TextBlock Grid.Row="1"
+                        <!--<TextBlock Grid.Row="1"
                                    Grid.Column="0"
                                    Grid.ColumnSpan="2"
                                    TextWrapping="WrapWholeWords"
                                    Text="{Binding Description}"
-                                   Style="{StaticResource TextBlockNormalFontStyle}"/>
+                                   Style="{StaticResource TextBlockNormalFontStyle}"/>-->
                     </Grid>
                 </Border>
             </Grid>

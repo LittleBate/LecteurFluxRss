@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using Windows.Web.Http;
+using System.Diagnostics;
 
 namespace Buisness
 {
@@ -113,8 +114,15 @@ namespace Buisness
         public async void Load(string FluxRssLink)
         {
             var response = await hc.GetStringAsync(new Uri(FluxRssLink, UriKind.Absolute));
-            var flux = LoadFluxByText(response);
-            OnFluxLoaded(new FluxLoadedEventArgs(flux));
+            try
+            {
+                var flux = LoadFluxByText(response);
+                OnFluxLoaded(new FluxLoadedEventArgs(flux));
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
         }
 
         public event EventHandler<FluxLoadedEventArgs> FluxLoaded;
@@ -173,17 +181,10 @@ namespace Buisness
 
         private Flux LoadFluxAtom(XDocument xDoc)
         {
-            XElement xFlux = xDoc.Descendants(FEED).FirstOrDefault();
-            if(xFlux == null)
-            {
-                return null;
-            }
-            Flux flux = new Flux()
-            {
-                Title = xFlux.Element(TITLE).Value,
-                Link = xFlux.Element(LINK).Value,
-            };
-            foreach (var xItem in xFlux.Elements(ENTRY).ToList())
+            Flux flux = new Flux();
+            flux.Title = xDoc.Element(TITLE).Value;
+            flux.Link = xDoc.Element(LINK).Value;
+            foreach (var xItem in xDoc.Descendants(ENTRY).ToList())
             {
                 var article = new Article()
                 {

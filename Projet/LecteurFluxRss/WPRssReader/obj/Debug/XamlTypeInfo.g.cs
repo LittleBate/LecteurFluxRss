@@ -130,9 +130,9 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
             _typeNameTable[2] = "WPRssReader.View.PivotArticle";
             _typeNameTable[3] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[5] = "WPRssReader.PivotPage";
-            _typeNameTable[6] = "WPRssReader.Common.NavigationHelper";
-            _typeNameTable[7] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[5] = "WPRssReader.Common.NavigationHelper";
+            _typeNameTable[6] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[7] = "WPRssReader.PivotPage";
             _typeNameTable[8] = "WPRssReader.VAjoutTag";
             _typeNameTable[9] = "WPRssReader.Common.ObservableDictionary";
             _typeNameTable[10] = "String";
@@ -146,9 +146,9 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
             _typeTable[2] = typeof(global::WPRssReader.View.PivotArticle);
             _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[5] = typeof(global::WPRssReader.PivotPage);
-            _typeTable[6] = typeof(global::WPRssReader.Common.NavigationHelper);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[5] = typeof(global::WPRssReader.Common.NavigationHelper);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[7] = typeof(global::WPRssReader.PivotPage);
             _typeTable[8] = typeof(global::WPRssReader.VAjoutTag);
             _typeTable[9] = typeof(global::WPRssReader.Common.ObservableDictionary);
             _typeTable[10] = typeof(global::System.String);
@@ -191,7 +191,7 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
 
         private object Activate_0_BoolToVisibilityConverter() { return new global::WPRssReader.Converters.BoolToVisibilityConverter(); }
         private object Activate_2_PivotArticle() { return new global::WPRssReader.View.PivotArticle(); }
-        private object Activate_5_PivotPage() { return new global::WPRssReader.PivotPage(); }
+        private object Activate_7_PivotPage() { return new global::WPRssReader.PivotPage(); }
         private object Activate_8_VAjoutTag() { return new global::WPRssReader.VAjoutTag(); }
         private object Activate_9_ObservableDictionary() { return new global::WPRssReader.Common.ObservableDictionary(); }
         private object Activate_11_VArticle() { return new global::WPRssReader.VArticle(); }
@@ -229,6 +229,7 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
             case 2:   //  WPRssReader.View.PivotArticle
                 userType = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_2_PivotArticle;
+                userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -241,23 +242,23 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
                 xamlType = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  WPRssReader.PivotPage
-                userType = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_PivotPage;
-                userType.AddMemberName("NavigationHelper");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 6:   //  WPRssReader.Common.NavigationHelper
+            case 5:   //  WPRssReader.Common.NavigationHelper
                 userType = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Windows.UI.Xaml.DependencyObject
+            case 6:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  WPRssReader.PivotPage
+                userType = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_PivotPage;
+                userType.AddMemberName("NavigationHelper");
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
 
             case 8:   //  WPRssReader.VAjoutTag
@@ -312,47 +313,52 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
         }
 
 
-        private object get_0_PivotPage_NavigationHelper(object instance)
+        private object get_0_PivotArticle_NavigationHelper(object instance)
+        {
+            var that = (global::WPRssReader.View.PivotArticle)instance;
+            return that.NavigationHelper;
+        }
+        private object get_1_PivotPage_NavigationHelper(object instance)
         {
             var that = (global::WPRssReader.PivotPage)instance;
             return that.NavigationHelper;
         }
-        private object get_1_VAjoutTag_NavigationHelper(object instance)
+        private object get_2_VAjoutTag_NavigationHelper(object instance)
         {
             var that = (global::WPRssReader.VAjoutTag)instance;
             return that.NavigationHelper;
         }
-        private object get_2_VAjoutTag_DefaultViewModel(object instance)
+        private object get_3_VAjoutTag_DefaultViewModel(object instance)
         {
             var that = (global::WPRssReader.VAjoutTag)instance;
             return that.DefaultViewModel;
         }
-        private object get_3_VArticle_NavigationHelper(object instance)
+        private object get_4_VArticle_NavigationHelper(object instance)
         {
             var that = (global::WPRssReader.VArticle)instance;
             return that.NavigationHelper;
         }
-        private object get_4_VArticle_DefaultViewModel(object instance)
+        private object get_5_VArticle_DefaultViewModel(object instance)
         {
             var that = (global::WPRssReader.VArticle)instance;
             return that.DefaultViewModel;
         }
-        private object get_5_VFlux_NavigationHelper(object instance)
+        private object get_6_VFlux_NavigationHelper(object instance)
         {
             var that = (global::WPRssReader.VFlux)instance;
             return that.NavigationHelper;
         }
-        private object get_6_VFlux_DefaultViewModel(object instance)
+        private object get_7_VFlux_DefaultViewModel(object instance)
         {
             var that = (global::WPRssReader.VFlux)instance;
             return that.DefaultViewModel;
         }
-        private object get_7_VResult_NavigationHelper(object instance)
+        private object get_8_VResult_NavigationHelper(object instance)
         {
             var that = (global::WPRssReader.VResult)instance;
             return that.NavigationHelper;
         }
-        private object get_8_VResult_DefaultViewModel(object instance)
+        private object get_9_VResult_DefaultViewModel(object instance)
         {
             var that = (global::WPRssReader.VResult)instance;
             return that.DefaultViewModel;
@@ -365,58 +371,64 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "WPRssReader.View.PivotArticle.NavigationHelper":
+                userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.View.PivotArticle");
+                xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "NavigationHelper", "WPRssReader.Common.NavigationHelper");
+                xamlMember.Getter = get_0_PivotArticle_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
             case "WPRssReader.PivotPage.NavigationHelper":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.PivotPage");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "NavigationHelper", "WPRssReader.Common.NavigationHelper");
-                xamlMember.Getter = get_0_PivotPage_NavigationHelper;
+                xamlMember.Getter = get_1_PivotPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VAjoutTag.NavigationHelper":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VAjoutTag");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "NavigationHelper", "WPRssReader.Common.NavigationHelper");
-                xamlMember.Getter = get_1_VAjoutTag_NavigationHelper;
+                xamlMember.Getter = get_2_VAjoutTag_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VAjoutTag.DefaultViewModel":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VAjoutTag");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "WPRssReader.Common.ObservableDictionary");
-                xamlMember.Getter = get_2_VAjoutTag_DefaultViewModel;
+                xamlMember.Getter = get_3_VAjoutTag_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VArticle.NavigationHelper":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VArticle");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "NavigationHelper", "WPRssReader.Common.NavigationHelper");
-                xamlMember.Getter = get_3_VArticle_NavigationHelper;
+                xamlMember.Getter = get_4_VArticle_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VArticle.DefaultViewModel":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VArticle");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "WPRssReader.Common.ObservableDictionary");
-                xamlMember.Getter = get_4_VArticle_DefaultViewModel;
+                xamlMember.Getter = get_5_VArticle_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VFlux.NavigationHelper":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VFlux");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "NavigationHelper", "WPRssReader.Common.NavigationHelper");
-                xamlMember.Getter = get_5_VFlux_NavigationHelper;
+                xamlMember.Getter = get_6_VFlux_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VFlux.DefaultViewModel":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VFlux");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "WPRssReader.Common.ObservableDictionary");
-                xamlMember.Getter = get_6_VFlux_DefaultViewModel;
+                xamlMember.Getter = get_7_VFlux_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VResult.NavigationHelper":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VResult");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "NavigationHelper", "WPRssReader.Common.NavigationHelper");
-                xamlMember.Getter = get_7_VResult_NavigationHelper;
+                xamlMember.Getter = get_8_VResult_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "WPRssReader.VResult.DefaultViewModel":
                 userType = (global::WPRssReader.WPRssReader_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WPRssReader.VResult");
                 xamlMember = new global::WPRssReader.WPRssReader_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "WPRssReader.Common.ObservableDictionary");
-                xamlMember.Getter = get_8_VResult_DefaultViewModel;
+                xamlMember.Getter = get_9_VResult_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }
@@ -744,6 +756,5 @@ namespace WPRssReader.WPRssReader_XamlTypeInfo
         }
     }
 }
-
 
 

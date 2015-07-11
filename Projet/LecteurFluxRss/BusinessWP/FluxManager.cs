@@ -115,7 +115,8 @@ namespace Buisness
 
         void loader_FluxLoaded(object sender, FluxLoadedEventArgs e)
         {
-            AddFlux(e.fluxLoaded);
+            if(e.fluxLoaded != null)
+                AddFlux(e.fluxLoaded);
         }
         
         /// <summary>

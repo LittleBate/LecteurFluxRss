@@ -68,7 +68,7 @@
             </PivotItem>
 
             <!-- Pivot de recherche par tag -->
-            <PivotItem x:Uid="piRecherche"
+            <!--<PivotItem x:Uid="piRecherche"
                        DataContext="{Binding VMRecherche}"
                        Margin="19,14.5,0,0"
                        Header="Recherche">
@@ -91,10 +91,10 @@
                              ItemsSource="{Binding TagsCherches}">
                     </ListBox>
                 </Grid>
-            </PivotItem>
+            </PivotItem>-->
 
             <!-- Pivot affichant les Flux rss et les articles favoris de l'utilisateur -->
-            <PivotItem x:Uid="piFavoris"
+            <!--<PivotItem x:Uid="piFavoris"
                        DataContext="{Binding VMFavoris}"
                        Margin="19,14.5,0,0"
                        Header="Favoris">
@@ -119,7 +119,7 @@
                         
                     </ListBox>
                 </Grid>
-            </PivotItem>
+            </PivotItem>-->
         </Pivot>
     </Grid>
     <Page.BottomAppBar>

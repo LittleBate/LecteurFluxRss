@@ -47,15 +47,15 @@
                      ItemTemplate="{StaticResource ListBox_Item_Article_Template}"
                      HorizontalContentAlignment="Right"
                      SelectedItem="{Binding CurrentArticle, Mode=TwoWay}"/>
-            <TextBlock Grid.Row="2"
+            <!--<TextBlock Grid.Row="2"
                        Text="Tags : "/>
             <ListBox Grid.Row="3"
                      ItemsSource="{Binding CurrentFlux.ListTags}">
                 
-            </ListBox>
+            </ListBox>-->
         </Grid>
     </Grid>
-    <Page.BottomAppBar>
+    <!--<Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Uid="btnBarAddTag" 
                           x:Name="btnBarAddTag" 
@@ -68,5 +68,5 @@
                           Icon="Favorite"
                           Command="{Binding CmdAddToFavori}" />
         </CommandBar>
-    </Page.BottomAppBar>
+    </Page.BottomAppBar>-->
 </Page>

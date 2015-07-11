@@ -87,11 +87,6 @@
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Uid="btnBarBack" 
-                          x:Name="btnBarBack" 
-                          Label="Back" 
-                          Icon="Back"
-                          Click="Button_Click" />
             <!--<AppBarButton x:Uid="btnBarAddTag" 
                           x:Name="btnBarAddTag" 
                           Label="add tag" 
